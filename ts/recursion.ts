@@ -17,18 +17,18 @@ const recursionAnswers = {
    * @returns {Number[]} The files under the directory dirName, including subdiretories.
    */
   listFiles: function (data: any, dirName: string = ''): string[] {
-    const iterateDirectories = (dir: any, directoryName: string, files: string[], isDirectory: boolean): string[] => {
+    const iterateDirectories = (dir: any, directoryName: string, files: string[], isDirectoryFound: boolean): string[] => {
       let result = [];
-      const newIsDirectory = dir.dirName === directoryName || directoryName === '' || isDirectory;
+      const newIsDirectoryFound = dir.dirName === directoryName || directoryName === '' || isDirectoryFound;
       if (dir.subDirs && dir.subDirs.length) {
         // eslint-disable-next-line guard-for-in
         // eslint-disable-next-line no-restricted-syntax
         for (const subDir of dir.subDirs) {
-          const newFiles = iterateDirectories(subDir, directoryName, files, newIsDirectory);
+          const newFiles = iterateDirectories(subDir, directoryName, files, newIsDirectoryFound);
           result = [...result, ...newFiles];
         }
       }
-      if (newIsDirectory) {
+      if (newIsDirectoryFound) {
         return [...dir.files, ...result];
       }
       return result;
