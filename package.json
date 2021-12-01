@@ -17,6 +17,7 @@
     "sinon": "^2.3.8"
   },
   "scripts": {
+    "prestart": "tsc",
     "start": "node index.js",
     "lint": "eslint --quiet tests/app app",
     "lint-warn": "eslint tests/app app"
@@ -26,6 +27,7 @@
     "eslint": "^4.2.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-chai-friendly": "^0.3.6",
-    "eslint-plugin-import": "^2.7.0"
+    "eslint-plugin-import": "^2.7.0",
+    "typescript": "^4.5.2"
   }
 }
