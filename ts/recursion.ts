@@ -1,3 +1,9 @@
+type Directory = {
+  dirName: string,
+  files: string[],
+  subDirs: Directory[],
+}
+
 const recursionAnswers = {
   /**
    * List the files in a given directory, of a filesystem described by data.
@@ -16,7 +22,7 @@ const recursionAnswers = {
    *
    * @returns {Number[]} The files under the directory dirName, including subdiretories.
    */
-  listFiles: function (data: any, dirName: string = ''): string[] {
+  listFiles: function (data: Directory, dirName: string = ''): string[] {
     const iterateDirectories = (dir: any, directoryName: string, files: string[], isDirectoryFound: boolean): string[] => {
       let result = [];
       const newIsDirectoryFound = dir.dirName === directoryName || directoryName === '' || isDirectoryFound;
